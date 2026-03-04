@@ -1,0 +1,8 @@
+name: Test curl
+on: [push]  # événement déclencheur
+jobs:
+  job_id:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl test
+        run: curl -s -o /dev/null -w "%{http_code}" http://localhost:3000/api

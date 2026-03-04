@@ -1,8 +1,7 @@
 name: Test Backend
 
 on:
-  pull_request:
-  workflow_dispatch:
+  push:
 
 jobs:
   test-build:
@@ -10,5 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run pytest
-        run: docker build -t nodejs_postgres-node:latest
+      - name: Build
+        run: docker build -t nodejs_postgres-node .
+
+      - name: Run
+        run: docker compose up -d --build

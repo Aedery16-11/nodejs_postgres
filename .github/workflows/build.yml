@@ -1,8 +1,14 @@
-name: Build 
-on: [push]  # événement déclencheur
+name: Test Backend
+
+on:
+  pull_request:
+  workflow_dispatch:
+
 jobs:
-  job_id:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Build
-        run: docker compose up -d
+      - uses: actions/checkout@v2
+
+      - name: Run pytest
+        run: docker compose run nodejs_app

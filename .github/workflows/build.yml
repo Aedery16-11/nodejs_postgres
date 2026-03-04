@@ -11,4 +11,4 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Run pytest
-        run: docker compose run nodejs_app
+        run: docker compose run nodejs_postgres

@@ -52,7 +52,6 @@ jobs:
             username: ${{ secrets.SSH_USER }}
             key: ${{ secrets.SSH_KEY }}
             script: |
-                whoami
                 docker pull ${{ env.IMAGE_NAME }}:latest
                 docker stop myapp || true
                 docker rm myapp || true
